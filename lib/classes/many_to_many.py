@@ -94,6 +94,10 @@ class Magazine:
         titles = [article.title for article in self.articles()]
         return titles if titles else None
 
+
+# The method finds authors who have written more than 2 articles for this magazine.
     def contributing_authors(self):
+    # This line uses a list comprehension to filter authors. It counts how many articles each author has written for *this* magazine.
         authors = [author for author in self.contributors() if sum(1 for article in author.articles() if article.magazine == self) > 2]
+            # This returns the list of authors if it's not empty, otherwise it returns None.
         return authors if authors else None
